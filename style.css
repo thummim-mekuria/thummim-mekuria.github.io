@@ -1,0 +1,59 @@
+/* Reset some defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url("images/hero-bg.jpg") no-repeat center/cover;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.cta {
+  padding: 12px 24px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background: #4338ca;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #eee;
+}
