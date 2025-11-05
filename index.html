@@ -1,32 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Research Portfolio</title>
+    <style>
+        /* CSS Reset and Base Styles */
+        :root {
+            --sidebar-width: 250px;
+            --font-family: 'Arial', 'Helvetica', sans-serif;
+            --text-color: #333;
+            --link-color: #333;
+            --link-hover-color: #999;
+            --background-color: #fff;
+            --spacing-large: 2.5rem;
+            --spacing-medium: 1.5rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+        }
+
+        /* ---------------------------------------------------- */
+        /* LAYOUT: Two-Column Grid for Desktop */
+        /* ---------------------------------------------------- */
+        .container {
+            display: grid;
+            /* 250px for the sidebar, remaining space for content */
+            grid-template-columns: var(--sidebar-width) 1fr; 
+            min-height: 100vh;
+        }
+
+        /* ---------------------------------------------------- */
+        /* SIDEBAR (Navigation) STYLES */
+        /* ---------------------------------------------------- */
+        .sidebar {
+            /* Fixes the sidebar's position on desktop, making it scroll independent of main content */
+            position: fixed; 
+            width: var(--sidebar-width);
+            height: 100%;
+            padding: var(--spacing-large);
+            border-right: 1px solid #eee; /* Subtle separator line */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .sidebar-header {
+            margin-bottom: var(--spacing-large);
+        }
+
+        .sidebar-header h1 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .nav-list {
+            list-style: none;
+        }
+
+        .nav-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ---------------------------------------------------- */
+        /* MAIN CONTENT STYLES */
+        /* ---------------------------------------------------- */
+        .main-content {
+            /* Shifts the content over to make room for the fixed sidebar */
+            margin-left: var(--sidebar-width); 
+            padding: var(--spacing-large);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-large);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .project-item {
+            margin-bottom: var(--spacing-large);
+        }
+
+        .project-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: var(--spacing-medium);
+        }
+        
+        /* Optional: Add space for the final project */
+        .project-item:last-child {
+            margin-bottom: 5rem; 
+        }
+
+        /* ---------------------------------------------------- */
+        /* RESPONSIVE DESIGN: Mobile View (< 768px) */
+        /* ---------------------------------------------------- */
+        @media (max-width: 768px) {
+            .container {
+                /* Stacks the sidebar and content in a single column */
+                grid-template-columns: 1fr; 
+            }
+
+            .sidebar {
+                /* Remove fixed positioning */
+                position: static; 
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            .main-content {
+                /* Remove left margin offset */
+                margin-left: 0; 
+            }
+            
+            .sidebar-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            /* Change navigation to be horizontal/inline for better mobile use */
+            .nav-list {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .nav-list li {
+                margin-right: var(--spacing-medium);
+            }
+        }
+
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <header class="navbar">
-    <div class="logo">MySite</div>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
 
-  <!-- Hero section -->
-  <section class="hero">
-    <h1>Your Hero Title</h1>
-    <p>Some supporting text from your Figma design.</p>
-    <button class="cta">Get Started</button>
-  </section>
+    <div class="container">
+        
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Eden Girma</h1>
+            </div>
+            
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#media">Media</a></li>
+                    <li><a href="https://edengirma.me" target="_blank">Main Site →</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 MySite</p>
-  </footer>
+        <main class="main-content">
+            <h2 id="research" class="section-title">Research Projects</h2>
+
+            <article class="project-item">
+                <h3>The Ethics of Large Language Model Deployment</h3>
+                <p class="project-meta">
+                    [Conference Name/Journal, Year] &bull; J. Smith, A. Johnson, and **E. Girma**
+                </p>
+                <p>
+                    A critical review of emerging socio-technical risks associated with commercializing general-purpose AI models, focusing on data provenance and algorithmic bias. 
+                </p>
+                <p><a href="#" target="_blank">Read Full Paper [PDF]</a></p>
+            </article>
+            
+            <hr style="border: none; border-bottom: 1px dashed #eee; margin: 2rem 0;">
+
+            <article class="project-item">
+                <h3>Modeling Information Cascade Dynamics in Decentralized Networks</h3>
+                <p class="project-meta">
+                    [Workshop Title, Year] &bull; **E. Girma**
+                </p>
+                <p>
+                    An analysis of how information spreads across peer-to-peer networks, exploring the impact of node reliability and transmission fidelity on signal integrity.
+                </p>
+                <p><a href="#" target="_blank">Project Page</a> | <a href="#" target="_blank">Code on GitHub</a></p>
+            </article>
+
+            <hr style="border: none; border-bottom: 1px dashed #eee; margin: 2rem 0;">
+
+            <article class="project-item">
+                <h3>Revisiting the Attention Mechanism in Transformer Architectures</h3>
+                <p class="project-meta">
+                    [Journal Name, Year] &bull; X. Li, **E. Girma**, and S. Chen
+                </p>
+                <p>
+                    This paper proposes a novel sparse attention layer that significantly reduces computational overhead while maintaining state-of-the-art performance on sequence-to-sequence tasks.
+                </p>
+                <p><a href="#" target="_blank">View Abstract</a></p>
+            </article>
+
+            <h2 id="media" class="section-title" style="margin-top: 5rem;">Media & Talks</h2>
+
+            <article class="project-item">
+                <h3>Talk: "AI & The Future of Work"</h3>
+                <p class="project-meta">
+                    [Event Name], October 2024
+                </p>
+                <p>
+                    A keynote address discussing the economic implications of automation and the role of policy in adapting to a rapidly changing labor market.
+                </p>
+                <p><a href="#" target="_blank">Watch Video</a></p>
+            </article>
+
+        </main>
+    </div>
+
 </body>
 </html>
