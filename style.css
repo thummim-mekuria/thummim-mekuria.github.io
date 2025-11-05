@@ -1,59 +1,296 @@
-/* Reset some defaults */
+:root {
+    /* if you want to keep it super simple, you can edit these top variables (variables = the things that start with --) to add some style and leave the rest of the code alone! */
+
+    /* colors */
+    --text: #000;
+    --background: #fff;
+    --accent-dark: #760f36;
+    --accent: #de2e72;
+    --accent-light: #FFBCCC;
+
+    /* fonts */
+    --basefont: sans-serif;
+    --titlefont: monospace;
+    --text-size: 16px;
+
+    /* gallery styling */
+    --minimum-img-width: 150px;
+    --maximum-img-width: 400px;
+    --maximum-columns: 4;
+    --image-background: #fff;
+    --column-gap: var(--spacing);
+
+    /* misc styling */
+    --max-width: 800px;
+    --spacing: 15px;
+    --border-radius: 4px;
+    --underline: wavy var(--accent-light);
+    --border: dashed var(--accent) 1px;
+
+    /* calculations - don't worry about this */
+    --halfspacing: calc(var(--spacing) / 2);
+    --doublespacing: calc(var(--spacing) * 2)
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+    scrollbar-color: var(--accent);
+    -ms-overflow-style: none;
+    box-decoration-break:clone
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: var(--spacing) 5%;
+    background-color: var(--background);
+    color: var(--text);
+    font-family: var(--basefont);
+    font-size: var(--text-size);
+    line-height: 1.5em;
 }
 
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 40px;
-  background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+h1:has(+ nav) {
+    margin-bottom: var(--halfspacing)
 }
 
-.navbar a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
+header {
+    text-align: center;
+    padding-bottom: var(--spacing);
 }
 
-/* Hero */
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: url("images/hero-bg.jpg") no-repeat center/cover;
+nav {
+    padding-top: var(--spacing)
 }
 
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+main, header, footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
 }
 
-.cta {
-  padding: 12px 24px;
-  background: #4f46e5;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.cta:hover {
-  background: #4338ca;
-}
-
-/* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
-  background: #eee;
+    display: block;
+    text-align: center;
+    font-size: .9em;
+    margin: var(--spacing) auto;
 }
+
+/* element styling */
+a {
+    color: var(--accent);
+    text-decoration: underline var(--underline);
+    text-underline-offset:.15em
+}
+
+a:hover {
+    color: var(--accent-dark);
+}
+
+nav a {
+    padding: 5px;
+    margin: 5px;
+}
+
+#to-top a {
+    position: fixed;
+    right: var(--spacing);
+    bottom: var(--spacing);
+    font-size: 50px;
+    text-decoration: none;
+    color: var(--accent-light);
+}
+
+b {
+    color: var(--accent-dark)
+}
+
+i {
+    color: var(--accent)
+}
+
+mark {
+    background-color: var(--accent-light);
+    padding: 1px 2px;
+    border-radius:var(--border-radius)
+}
+
+code {
+    font-size:.9em;
+    padding:1px 3px;
+    font-family:monospace;
+    color:var(--accent-dark)
+}
+
+u {
+    text-decoration-color: var(--accent-dark)
+}
+ol, ul {
+    margin:var(--spacing);
+}
+li {
+    padding-left:var(--halfspacing);
+    margin:var(--halfspacing) auto;
+}
+li > ul {
+    padding-left: var(--spacing);
+    margin:auto;
+    font-size:.9em;
+}
+li::marker {
+    color: var(--accent);
+}
+blockquote {
+    padding-left:var(--doublespacing);
+    margin:var(--doublespacing);
+    border-left: var(--border);
+    color:var(--accent-dark)
+}
+
+hr {
+    width: 100%;
+    border: none;
+}
+
+img {
+   vertical-align: middle;
+   max-width:100%;
+}
+
+/* boxes & flex */
+.box {
+    padding: var(--spacing);
+    border: var(--border);
+    margin: var(--spacing) auto;
+    border-radius: var(--border-radius);
+    break-inside:avoid;
+}
+
+.flex {
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--halfspacing) var(--spacing)
+}
+
+.flex > * {
+    flex: 1 2 200px;
+    margin:0 auto;
+}
+
+.center {
+    text-align: center;
+}
+
+/* dividing lines between areas */
+hr::after,
+nav::after,
+footer::before {
+    content: "\a0 \a0";
+    text-align-last: justify;
+    width: 50%;
+    margin: var(--spacing) auto;
+    display: table;
+    text-decoration: underline var(--underline);
+    text-decoration-thickness: .1em
+}
+
+/* headers */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--titlefont);
+    margin: 1.5em auto;
+    text-align: center;
+    line-height: 1.3em;
+}
+
+h1 {
+    font-size: 2em;
+    
+}
+   h1 a {
+      text-decoration: none;
+      color:var(--accent);
+    }
+
+h2 {
+    font-size: 1.5em;
+    margin: 1em auto;
+    color: var(--accent);
+
+}
+
+h3 {
+    color: var(--background);
+    background: var(--accent)
+}
+
+h4 {
+    color: var(--accent-dark);
+    background: var(--accent-light);
+    font-weight: normal;
+}
+
+/* image gallery */
+#gallery {
+    margin: var(--doublespacing) auto;
+    display: block;
+    text-align: center;
+    line-height: 1.2em;
+    font-size: .9em;
+}
+#gallery.columns {
+    columns: var(--minimum-img-width) var(--maximum-columns);
+    gap: var(--column-gap);
+}
+
+#gallery img {
+    margin: var(--spacing) auto;
+    max-width: min(var(--maximum-img-width), 100%);
+    display:block;
+    background-color:var(--image-background)
+}
+
+figure {
+    margin: var(--spacing) auto;
+    break-inside: avoid;
+}
+
+/* lightbox */
+#gallery img:hover {
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    outline: var(--border)
+}
+
+#lightbox {
+    border: none;
+    outline: none;
+}
+#lightbox img {
+  max-height:90vh;
+  max-width:90vw;
+}
+
+::backdrop {
+    backdrop-filter: blur(2px) brightness(80%);
+}
+
+#gallery:has(~ #lightbox:popover-open) {
+    pointer-events: none;
+}
+/* makes the lightbox work on small screens, like phones */
+@media only screen and (min-width: 600px) {
+    #lightbox button {
+        display: none;
+    }
+} 
+@media only screen and (max-width: 600px) {
+    #lightbox button {
+        display: block;
+        width:30px;
+        height:30px;
+        margin:10px auto;
+    }
+} 
