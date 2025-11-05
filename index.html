@@ -1,238 +1,180 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
+
+    <!-- hello from kaylee rowena! i hope you enjoy the code! <3 -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Research Portfolio</title>
-    <style>
-        /* CSS Reset and Base Styles */
-        :root {
-            --sidebar-width: 250px;
-            --font-family: 'Arial', 'Helvetica', sans-serif;
-            --text-color: #333;
-            --link-color: #333;
-            --link-hover-color: #999;
-            --background-color: #fff;
-            --spacing-large: 2.5rem;
-            --spacing-medium: 1.5rem;
-        }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
 
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-        }
+    <title>
+        YOUR NAME GOES HERE
+    </title>
+    <link rel="icon" type="image/x-icon" href="favicon-goes-here.png">
+    <!-- the icon that shows up in the address bar -->
 
-        a {
-            color: var(--link-color);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--link-hover-color);
-        }
-
-        /* ---------------------------------------------------- */
-        /* LAYOUT: Two-Column Grid for Desktop */
-        /* ---------------------------------------------------- */
-        .container {
-            display: grid;
-            /* 250px for the sidebar, remaining space for content */
-            grid-template-columns: var(--sidebar-width) 1fr; 
-            min-height: 100vh;
-        }
-
-        /* ---------------------------------------------------- */
-        /* SIDEBAR (Navigation) STYLES */
-        /* ---------------------------------------------------- */
-        .sidebar {
-            /* Fixes the sidebar's position on desktop, making it scroll independent of main content */
-            position: fixed; 
-            width: var(--sidebar-width);
-            height: 100%;
-            padding: var(--spacing-large);
-            border-right: 1px solid #eee; /* Subtle separator line */
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .sidebar-header {
-            margin-bottom: var(--spacing-large);
-        }
-
-        .sidebar-header h1 {
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
-
-        .nav-list {
-            list-style: none;
-        }
-
-        .nav-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* ---------------------------------------------------- */
-        /* MAIN CONTENT STYLES */
-        /* ---------------------------------------------------- */
-        .main-content {
-            /* Shifts the content over to make room for the fixed sidebar */
-            margin-left: var(--sidebar-width); 
-            padding: var(--spacing-large);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            margin-bottom: var(--spacing-large);
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .project-item {
-            margin-bottom: var(--spacing-large);
-        }
-
-        .project-item h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .project-meta {
-            font-style: italic;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: var(--spacing-medium);
-        }
-        
-        /* Optional: Add space for the final project */
-        .project-item:last-child {
-            margin-bottom: 5rem; 
-        }
-
-        /* ---------------------------------------------------- */
-        /* RESPONSIVE DESIGN: Mobile View (< 768px) */
-        /* ---------------------------------------------------- */
-        @media (max-width: 768px) {
-            .container {
-                /* Stacks the sidebar and content in a single column */
-                grid-template-columns: 1fr; 
-            }
-
-            .sidebar {
-                /* Remove fixed positioning */
-                position: static; 
-                width: 100%;
-                height: auto;
-                border-right: none;
-                border-bottom: 1px solid #eee;
-            }
-
-            .main-content {
-                /* Remove left margin offset */
-                margin-left: 0; 
-            }
-            
-            .sidebar-header h1 {
-                font-size: 1.5rem;
-            }
-            
-            /* Change navigation to be horizontal/inline for better mobile use */
-            .nav-list {
-                display: flex;
-                flex-wrap: wrap;
-            }
-
-            .nav-list li {
-                margin-right: var(--spacing-medium);
-            }
-        }
-
-    </style>
+    <!-- HTML Meta Tags-->
+    <meta property="og:type" content="website" />
+    <meta name="description" content="describe your site for search engines + social media links!" />
+    <meta property="og:image" content="put a link to your preview image for social media here.jpg">
+    <meta property="og:image:type" content="image/jpg">
 </head>
+
 <body>
 
-    <div class="container">
-        
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <h1>Eden Girma</h1>
+    <div id="top"></div>
+    <div id="to-top"><a href="#top" title="back to top">^</a></div>
+
+    <header>
+        <h1><a class="h1" href="/">
+            your name goes here
+            </a>
+        </h1>
+        you could also put an image here, if you wanted! or a subtitle!
+
+        <nav>
+            <a href="/about">
+                your navigation
+            </a>
+            <a href="/comics">
+                links
+            </a>
+            <a href="/illustration">
+                go
+            </a>
+            <a href="/links">
+                here!
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>a very simple portfolio code template!</h2>
+        <p>
+            <a href="./">back to the blog post!</a>
+        </p>
+        <p>
+        <div class="box center">
+            <b>how to grab this code:</b>
+            <p>
+                right click on this page & select <i>view page source,</i> then copy everything that comes up!
+                paste that into your <code>index.html</code> file.
+            <p>then go to <a href="style.css">style.css</a> and copy-paste everything there into a
+                <code>style.css</code> file. edit to your heart's content.
+        </div>
+        this is some page content, in <b>bold,</b> <i>italic,</i> <u>underlined,</u> <mark>highlighted,</mark>
+        <code>code,</code> and <a href="/">link</a> varieties.
+        <p>the <code>p</code> tag denotes a paragraph, and the <code>br</code> tag will make a single line break,
+            <br>like this.
+        <p>
+
+            <!-- anything written like this won't show up in the actual page, only in your code - you can use this to write notes to yourself! -->
+             
+            the code includes 5 variables for colors you can edit:
+            <span style="display:inline-block;width:10px;height:10px;background:var(--text)"></span> text, <span
+                style="display:inline-block;width:10px;height:10px;background:var(--background);border:1px var(--text) solid"></span>
+            background, <span style="display:inline-block;width:10px;height:10px;background:var(--accent)"></span>
+            accent, <span style="display:inline-block;width:10px;height:10px;background:var(--accent-dark)"></span>
+            accent-dark, and <span
+                style="display:inline-block;width:10px;height:10px;background:var(--accent-light)"></span> accent-light.
+        <ul>
+            <li>
+                you can also make lists
+            </li>
+            <li>
+                unordered lists (<code>ul</code>) look like this
+            </li>
+        </ul>
+        <ol>
+            <li>
+                ordered lists (<code>ol</code>) look like this
+            </li>
+            <li>
+                (they have numbers)
+            </li>
+        </ol>
+
+        <blockquote>
+            this is a blockquote, which is good for quoting.
+        </blockquote>
+
+        <div class="box center">
+            this is a box - you can put special content into it, if you want. use <code>class="center"</code> to center
+            text.
+        </div>
+
+        <div class="flex">
+            <div class="box">
+                want to put two boxes next to each other? or text next to an image?
             </div>
-            
-            <nav>
-                <ul class="nav-list">
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#media">Media</a></li>
-                    <li><a href="https://edengirma.me" target="_blank">Main Site →</a></li>
-                </ul>
-            </nav>
-        </aside>
+            <div class="box">
+                use a <code>div class="flex"</code>!
+            </div>
+        </div>
 
-        <main class="main-content">
-            <h2 id="research" class="section-title">Research Projects</h2>
+        <hr>
+        ^ that's an <code>hr</code> - a little dividing line to put between elements.
 
-            <article class="project-item">
-                <h3>The Ethics of Large Language Model Deployment</h3>
-                <p class="project-meta">
-                    [Conference Name/Journal, Year] &bull; J. Smith, A. Johnson, and **E. Girma**
-                </p>
-                <p>
-                    A critical review of emerging socio-technical risks associated with commercializing general-purpose AI models, focusing on data provenance and algorithmic bias. 
-                </p>
-                <p><a href="#" target="_blank">Read Full Paper [PDF]</a></p>
-            </article>
-            
-            <hr style="border: none; border-bottom: 1px dashed #eee; margin: 2rem 0;">
+        <h3>image gallery</h3>
+        <div id="gallery" class="columns">
+            you can put text here, too, if you want. the number of columns will change depending on how wide the window
+            is, making it responsive to view on phone screens!
+            <p>
+            <div class="box">don't want columns? just remove the <code>class = "columns"</code> bit. (this is good for
+                things like posting comic pages, since columns can mess with the order of your images.)
+            </div>
+            <figure>
+                <img src="images/300x300.png">
+                <figcaption>
+                    you can use the <code>figure & figcaption</code> elements if you want to add captions to your images
+                </figcaption>
+            </figure>
+            <img src="images/300x300.png">
+            <img src="images/500x300.png">
+             <img src="images/900x1200.png">
+            <img src="images/500x300.png">
+            <img src="images/300x300.png">
+            <img src="images/200x500.png">
+            <img src="images/300x300.png">
+            <img src="images/500x300.png">
+            <img src="images/300x300.png">
 
-            <article class="project-item">
-                <h3>Modeling Information Cascade Dynamics in Decentralized Networks</h3>
-                <p class="project-meta">
-                    [Workshop Title, Year] &bull; **E. Girma**
-                </p>
-                <p>
-                    An analysis of how information spreads across peer-to-peer networks, exploring the impact of node reliability and transmission fidelity on signal integrity.
-                </p>
-                <p><a href="#" target="_blank">Project Page</a> | <a href="#" target="_blank">Code on GitHub</a></p>
-            </article>
+        </div>
 
-            <hr style="border: none; border-bottom: 1px dashed #eee; margin: 2rem 0;">
+        <div id="lightbox" popover></div>
+        <!-- don't get rid of this div, even though it looks empty - this is what makes your image lightbox work! -->
 
-            <article class="project-item">
-                <h3>Revisiting the Attention Mechanism in Transformer Architectures</h3>
-                <p class="project-meta">
-                    [Journal Name, Year] &bull; X. Li, **E. Girma**, and S. Chen
-                </p>
-                <p>
-                    This paper proposes a novel sparse attention layer that significantly reduces computational overhead while maintaining state-of-the-art performance on sequence-to-sequence tasks.
-                </p>
-                <p><a href="#" target="_blank">View Abstract</a></p>
-            </article>
-
-            <h2 id="media" class="section-title" style="margin-top: 5rem;">Media & Talks</h2>
-
-            <article class="project-item">
-                <h3>Talk: "AI & The Future of Work"</h3>
-                <p class="project-meta">
-                    [Event Name], October 2024
-                </p>
-                <p>
-                    A keynote address discussing the economic implications of automation and the role of policy in adapting to a rapidly changing labor market.
-                </p>
-                <p><a href="#" target="_blank">Watch Video</a></p>
-            </article>
-
-        </main>
-    </div>
+    </main>
+    <footer>
+        footer text! this is where you put things like:
+        <br>(c) you, 2025 - forever.
+        <p>base code by <a href="https://kayleerowena.com/blog/2025/code-template">kaylee rowena</a>. (you don't have to
+            leave this in here, but i'd appreciate if you link to me somewhere on your site so other people can grab the
+            template if they want to! i'm not your mom or a cop, though, so do whatever you want.)
+        <p>you can put social media links here too:
+            <br><a href="https://bsky.app">bsky</a> | <a
+                href="https://www.instagram.com">instagram</a> | <a
+                href="https://tumblr.com/">tumblr</a> | <a href="https://ko-fi.com">tip
+                jar</a> | <a href="mailto:your@email.address">email</a>
+    </footer>
 
 </body>
+
+<!-- this bit is what makes the image lightbox work! -->
+<script>
+    const popover = document.getElementById("lightbox");
+
+    $('#gallery img').click(function (e) {
+        var image_src = $(this).attr("src");
+        $(this).attr('popovertarget', 'lightbox');
+        $('#lightbox').html('<img src="' + image_src + '" />');
+        popover.showPopover();
+        $('#lightbox').append('<button popovertarget="lightbox" popovertargetaction="hide">x</button>');
+    });
+</script>
+
 </html>
