@@ -3,10 +3,10 @@
 
     /* colors */
     --text: #000;
-    --background: #fff;
-    --accent-dark: #100;
-    --accent: #de2e72;
-    --accent-light: #de2e72;
+    --background: #000;
+    --accent-dark: #000;
+    --accent: #000;
+    --accent-light: #000;
 
     /* fonts */
     --basefont: sans-serif;
