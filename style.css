@@ -50,7 +50,7 @@ body {
     font-size: var(--text-size);
     line-height: 1.5em;
     
-    background-image: url('background_orion.jpg'); 
+    background-image: url('background_orion_color.jpg'); 
     background-repeat: no-repeat; 
     background-size: cover; 
     background-attachment: fixed; 
