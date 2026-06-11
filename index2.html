@@ -17,37 +17,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #000;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             overflow: hidden;
-        }
-
-        canvas#stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .glitter-particle {
-            position: fixed;
-            pointer-events: none;
-            border-radius: 50%;
-            z-index: 9999;
-            animation: glitter-fade 0.8s ease-out forwards;
-        }
-
-        @keyframes glitter-fade {
-            0% { opacity: 1; transform: scale(1) translateY(0); }
-            100% { opacity: 0; transform: scale(0) translateY(20px); }
         }
 
         .container {
@@ -58,7 +30,6 @@
             justify-content: center;
             align-items: center;
         }
-
 
         /* Arrows */
         .arrow {
@@ -220,7 +191,6 @@
     </style>
 </head>
 <body>
-    <canvas id="stars"></canvas>
     <div class="container">
         <!-- Arrows pointing inward -->
         <div class="arrow arrow-up">↓</div>
@@ -244,74 +214,11 @@
             window.open("https://stream-crown-70b.notion.site/3573ae34af4d8023b987e755b2cb38b5?pvs=74");
             const feedback = document.getElementById('feedback');
             feedback.classList.add('show');
-            setTimeout(() => feedback.classList.remove('show'), 1500);
+            
+            setTimeout(() => {
+                feedback.classList.remove('show');
+            }, 1500);
         }
-
-        // Starfield background
-        const canvas = document.getElementById('stars');
-        const ctx = canvas.getContext('2d');
-        let stars = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        function initStars() {
-            stars = [];
-            for (let i = 0; i < 200; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    r: Math.random() * 1.5 + 0.2,
-                    alpha: Math.random(),
-                    speed: Math.random() * 0.005 + 0.002
-                });
-            }
-        }
-
-        function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            stars.forEach(s => {
-                s.alpha += s.speed;
-                if (s.alpha > 1 || s.alpha < 0) s.speed *= -1;
-                ctx.beginPath();
-                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255,255,255,${s.alpha})`;
-                ctx.fill();
-            });
-            requestAnimationFrame(drawStars);
-        }
-
-        resizeCanvas();
-        initStars();
-        drawStars();
-        window.addEventListener('resize', () => { resizeCanvas(); initStars(); });
-
-        // Glitter trail
-        const colors = ['#ff6ef7','#ffe66d','#6ef7ff','#ff6b6b','#a8ff78','#ffffff','#c77dff','#4ecdc4'];
-
-        document.addEventListener('mousemove', (e) => {
-            for (let i = 0; i < 5; i++) {
-                const p = document.createElement('div');
-                p.className = 'glitter-particle';
-                const size = Math.random() * 8 + 3;
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                const offsetX = (Math.random() - 0.5) * 20;
-                const offsetY = (Math.random() - 0.5) * 20;
-                p.style.cssText = `
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${e.clientX + offsetX}px;
-                    top: ${e.clientY + offsetY}px;
-                    background: ${color};
-                    box-shadow: 0 0 ${size * 2}px ${color};
-                    animation-duration: ${Math.random() * 0.5 + 0.5}s;
-                `;
-                document.body.appendChild(p);
-                p.addEventListener('animationend', () => p.remove());
-            }
-        });
     </script>
 </body>
 </html>
