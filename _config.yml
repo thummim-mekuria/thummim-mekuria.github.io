@@ -17,12 +17,8 @@ author:
   name: "Thummim Mekuria"
   avatar: # TODO: "/assets/images/headshot.jpg" — square-ish photo for the sidebar
   bio: "TODO: short bio, one line."
-  location: "Santa Cruz, CA"
   email: "tmekuria@ucsc.edu"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-square-envelope"
-      url: "mailto:tmekuria@ucsc.edu"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/thummim-mekuria"
