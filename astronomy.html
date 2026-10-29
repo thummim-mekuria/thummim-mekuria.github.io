@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>astronomy · ቱሚም ጌታሁን መኩሪያ</title>
+    <link rel="stylesheet" href="desktop.css">
+    <style>
+        body {
+            background: #03040a url('background_pleiades.jpg') center 40% / cover no-repeat fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menubar">
+        <a class="name" href="index.html">thummim mekuria <span class="path">/ astronomy</span></a>
+        <span id="clock"></span>
+    </div>
+
+    <!-- each icon: href = where it goes, data-x / data-y = starting grid position, svg <use> = which icon -->
+    <div class="desktop" id="desktop">
+        <a class="icon" href="index.html" data-x="0" data-y="0">
+            <div class="emoji">⬅️</div>
+            <span>home</span>
+        </a>
+        <a class="icon" href="publication_list.html" target="_blank" data-x="1" data-y="0">
+            <svg><use href="#i-txt"/></svg>
+            <span>publication list.txt</span>
+        </a>
+        <a class="icon" href="Mekuria_HIKinematics.pdf" target="_blank" data-x="0" data-y="1">
+            <svg><use href="#i-pdf"/></svg>
+            <span>HI kinematics.pdf</span>
+        </a>
+        <a class="icon" href="https://iopscience.iop.org/article/10.3847/1538-3881/ae3f30" target="_blank" data-x="1" data-y="1">
+            <svg><use href="#i-link"/></svg>
+            <span>HI kinematics (journal)</span>
+        </a>
+    </div>
+
+    <div class="hint">click an icon to open it · drag to rearrange</div>
+
+    <script src="desktop.js"></script>
+</body>
+</html>

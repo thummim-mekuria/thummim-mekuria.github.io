@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>philosophy · ቱሚም ጌታሁን መኩሪያ</title>
+    <link rel="stylesheet" href="desktop.css">
+    <style>
+        body {
+            background: #05050a url('background_orion_color.jpg') center / cover no-repeat fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menubar">
+        <a class="name" href="index.html">thummim mekuria <span class="path">/ philosophy</span></a>
+        <span id="clock"></span>
+    </div>
+
+    <!-- each icon: href = where it goes, data-x / data-y = starting grid position, svg <use> = which icon -->
+    <div class="desktop" id="desktop">
+        <a class="icon" href="index.html" data-x="0" data-y="0">
+            <div class="emoji">⬅️</div>
+            <span>home</span>
+        </a>
+    </div>
+
+    <div class="hint">click an icon to open it · drag to rearrange</div>
+
+    <script src="desktop.js"></script>
+</body>
+</html>

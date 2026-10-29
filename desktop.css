@@ -1,0 +1,153 @@
+/* shared look for the desktop-style pages (index.html, astronomy.html) */
+:root {
+    /* colors */
+    --text: #fff;
+    --menubar: rgba(10, 10, 20, 0.55);
+    --select: rgba(120, 160, 255, 0.35);
+    --folder: #7fb3ff;
+    --folder-dark: #4f8fe8;
+
+    /* sizes */
+    --icon-size: 84px;
+    --cell-width: 120px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    user-select: none;
+}
+
+/* top menu bar */
+.menubar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    background: var(--menubar);
+    backdrop-filter: blur(12px);
+    z-index: 10;
+}
+
+.menubar .name {
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.menubar .path {
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+/* desktop */
+.desktop {
+    position: absolute;
+    inset: 28px 0 0 0;
+}
+
+.icon {
+    position: absolute;
+    width: var(--cell-width);
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: default;
+    touch-action: none;
+}
+
+.icon svg {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+    transition: filter 0.2s ease;
+}
+
+/* an emoji can stand in for an svg icon: <div class="emoji">🌟</div> */
+.icon .emoji {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    font-size: calc(var(--icon-size) * 0.8);
+    line-height: var(--icon-size);
+    text-align: center;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.5));
+    pointer-events: none;
+    transition: filter 0.2s ease;
+}
+
+.icon span {
+    font-size: 13px;
+    line-height: 1.25;
+    text-align: center;
+    padding: 1px 5px;
+    border-radius: 4px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+.icon.selected {
+    background: var(--select);
+}
+
+.icon.selected span {
+    background: #2f6fe0;
+    text-shadow: none;
+}
+
+/* picked up: the icon rises off the desktop and its shadow spreads out below it */
+.icon.dragging {
+    z-index: 5;
+    cursor: grabbing;
+    transform: translateY(-10px) scale(1.12) rotate(-3deg);
+    transition: transform 0.15s ease-out;
+}
+
+.icon.dragging svg,
+.icon.dragging .emoji {
+    filter: drop-shadow(0 18px 14px rgba(0, 0, 0, 0.45));
+}
+
+/* let go: the icon falls back down and settles with a small bounce */
+.icon.dropping {
+    z-index: 4;
+    animation: drop 0.35s ease-out;
+}
+
+@keyframes drop {
+    0%   { transform: translateY(-10px) scale(1.12) rotate(-3deg); }
+    55%  { transform: translateY(2px) scale(0.94, 0.9) rotate(0deg); }
+    80%  { transform: translateY(-2px) scale(1.02); }
+    100% { transform: none; }
+}
+
+.hint {
+    position: fixed;
+    bottom: 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0.6;
+    text-shadow: 0 1px 3px #000;
+}

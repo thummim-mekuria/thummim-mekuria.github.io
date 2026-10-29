@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ቱሚም ጌታሁን መኩሪያ</title>
+    <link rel="stylesheet" href="desktop.css">
+    <style>
+        body {
+            /* zoom the photo and shift it so the moon (50% across, 42.5% down the photo) sits at --moon-x, --moon-y on screen */
+            --moon-x: 20vw;
+            --moon-y: 18vh;
+            --bg-w: max(160vw, 91vh);
+            --bg-h: calc(var(--bg-w) * 1.5676);  /* photo is 1804 x 2828 */
+            --bg-left: calc(var(--moon-x) - 0.5 * var(--bg-w));
+            --bg-top: calc(var(--moon-y) - 0.425 * var(--bg-h));
+            background: #1a5f8f url('background_clouds.jpg') no-repeat fixed;
+            background-size: var(--bg-w) var(--bg-h);
+            background-position: var(--bg-left) var(--bg-top);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menubar">
+        <a class="name" href="index.html">thummim mekuria</a>
+        <span id="clock"></span>
+    </div>
+
+    <!-- each icon: href = where it goes, svg <use> = which icon,
+         data-u / data-v = where it sits on the photo (fraction across / down), so the icons stay
+         in the blue gap below the moon at any window size -->
+    <div class="desktop" id="desktop">
+        <a class="icon" href="astronomy.html" data-u="0.501" data-v="0.538">
+            <div class="emoji">🌟</div>
+            <span>astronomy</span>
+        </a>
+        <a class="icon" href="CV.pdf" target="_blank" data-u="0.600" data-v="0.422">
+            <svg><use href="#i-pdf"/></svg>
+            <span>cv.pdf</span>
+        </a>
+        <a class="icon" href="DecolonizingPhysAstroSymposium.pdf" target="_blank" data-u="0.462" data-v="0.499">
+            <svg><use href="#i-pdf"/></svg>
+            <span>decolonizing physics &amp; astro.pdf</span>
+        </a>
+        <a class="icon" href="https://github.com/thummim-mekuria" target="_blank" data-u="0.540" data-v="0.499">
+            <svg><use href="#i-terminal"/></svg>
+            <span>github</span>
+        </a>
+        <a class="icon" href="https://github.com/thummim-mekuria/erdos_project" target="_blank" data-u="0.557" data-v="0.460">
+            <div class="emoji">💰</div>
+            <span>quant_finance</span>
+        </a>
+        <a class="icon" href="philosophy.html" data-u="0.442" data-v="0.460">
+            <div class="emoji">💬</div>
+            <span>philosophy</span>
+        </a>
+        <a class="icon" href="contact_info.html" target="_blank" data-u="0.405" data-v="0.422">
+            <svg><use href="#i-txt"/></svg>
+            <span>contact info.txt</span>
+        </a>
+    </div>
+
+    <div class="hint">click an icon to open it · drag to rearrange</div>
+
+    <script src="desktop.js"></script>
+</body>
+</html>

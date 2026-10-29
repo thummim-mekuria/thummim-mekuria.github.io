@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>
+        ቱሚም ጌታሁን መኩሪያ
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" charset="utf-8"></script>
+
+    <link rel="stylesheet" href="style.css" type="text/css" media="all">
+
+    
+    <link rel="icon" type="image/x-icon" href="favicon-goes-here.png">
+    <!-- the icon that shows up in the address bar -->
+
+    <!-- HTML Meta Tags-->
+    <meta property="og:type"content="website" />
+    <meta name="description"content="thummim mekuria" />
+    <meta property="og:image"content="put a link to your preview image for social media here.jpg">
+    <meta property="og:image:type"content="image/jpg">
+</head>
+
+<body>
+
+    <div id="top"></div>
+    <div id="to-top"><a href="#top" title="back to top">^</a></div>
+
+    <header>
+    
+
+        <nav>
+            <a href="/">
+                home
+            </a>
+            <a href="/research">
+                research
+            </a>
+            <a href="/curriculum_vitae">
+                cv
+            </a>
+            <a href="/resources">
+                resources
+            </a>
+            <a href="/art">
+                other work
+            </a>
+            <a href="/tree">
+                tree
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <p>
+        <mark><a href="https://iopscience.iop.org/article/10.3847/1538-3881/ae3f30">Kinematics of HI Associated with Molecular Clouds (pdf)</a></mark>
+        <!-- <b>bold,</b> <i>italic,</i> <u>underlined,</u>  -->
+        <!-- <code>code,</code> and <a href="/">link</a> varieties. -->
+        <!-- <p>the <code>p</code> tag denotes a paragraph, and the <code>br</code> tag will make a single line break,
+            <br>like this.
+        <p> -->
+             
+            <!-- the code includes 5 variables for colors you can edit:
+            <span style="display:inline-block;width:10px;height:10px;background:var(--text)"></span> text, <span
+                style="display:inline-block;width:10px;height:10px;background:var(--background);border:1px var(--text) solid"></span>
+            background, <span style="display:inline-block;width:10px;height:10px;background:var(--text)"></span>
+            accent, <span style="display:inline-block;width:10px;height:10px;background:var(--text)"></span>
+            accent-dark, and <span
+                style="display:inline-block;width:10px;height:10px;background:var(--accent-light)"></span>  -->
+        <!-- <ul>
+            <li>
+                you can also make lists
+            </li>
+            <li>
+                unordered lists (<code>ul</code>) look like this
+            </li>
+        </ul>
+        <ol>
+            <li>
+                ordered lists (<code>ol</code>) look like this
+            </li>
+            <li>
+                (they have numbers)
+            </li> 
+        </ol> -->
+
+      
+
+        <div class="box center">
+            this is a box - you can put special content into it, if you want. use <code>class="center"</code> to center
+            text.
+        </div>
+
+        <div class="flex">
+            <div class="box">
+                want to put two boxes next to each other? or text next to an image?
+            </div>
+            <div class="box">
+                use a <code>div class="flex"</code>!
+            </div>
+        </div>
+
+        <!-- <hr>
+        ^ that's an <code>hr</code> - a little dividing line to put between elements. -->
+
+        <!-- IMAGE GALLERY (commented out; remove these comment markers to restore)
+        <h3>image gallery</h3>
+        <div id="gallery" class="columns">
+            you can put text here, too, if you want. the number of columns will change depending on how wide the window
+            is, making it responsive to view on phone screens!
+            <p>
+            <div class="box">don't want columns? just remove the <code>class = "columns"</code> bit. (this is good for
+                things like posting comic pages, since columns can mess with the order of your images.)
+            </div>
+            <figure>
+                <img src="images/300x300.png">
+                <figcaption>
+                    you can use the <code>figure & figcaption</code> elements if you want to add captions to your images
+                </figcaption>
+            </figure>
+            <img src="images/300x300.png">
+            <img src="images/500x300.png">
+             <img src="images/900x1200.png">
+            <img src="images/500x300.png">
+            <img src="images/300x300.png">
+            <img src="images/200x500.png">
+            <img src="images/300x300.png">
+            <img src="images/500x300.png">
+            <img src="images/300x300.png">
+
+        </div>
+
+        <div id="lightbox" popover></div>
+        don't get rid of this div, even though it looks empty - this is what makes your image lightbox work!
+        IMAGE GALLERY END -->
+
+    </main>
+    <footer>
+        <a href = "mailto: tmekuria@ucsc.com" class="icon solid fa-envelope"><span class="label">tmekuria [at] ucsc [dot] edu</span></a> | 
+        <a href="https://kayleerowena.com/blog/2025/code-template">code template</a> |
+        <a href="https://github.com/thummim-mekuria">github</a> 
+        
+    </footer>
+
+</body>
+
+<!-- this bit is what makes the image lightbox work! -->
+<script>
+    const popover = document.getElementById("lightbox");
+
+    $('#gallery img').click(function (e) {
+        var image_src = $(this).attr("src");
+        $(this).attr('popovertarget', 'lightbox');
+        $('#lightbox').html('<img src="' + image_src + '" />');
+        popover.showPopover();
+        $('#lightbox').append('<button popovertarget="lightbox" popovertargetaction="hide">x</button>');
+    });
+</script>
+
+</html>
