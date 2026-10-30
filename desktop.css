@@ -1,4 +1,4 @@
-/* shared look for the desktop-style pages (index.html, astronomy.html) */
+/* shared look for the desktop-style pages (index.html, research.html) */
 :root {
     /* colors */
     --text: #fff;
@@ -9,7 +9,8 @@
 
     /* sizes */
     --icon-size: 84px;
-    --cell-width: 120px;
+    --cell-width: 160px;
+    --menubar-height: 50px;
 }
 
 * {
@@ -35,24 +36,26 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 28px;
+    height: var(--menubar-height);
     padding: 0 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 13px;
+    font-size: 23px;
     background: var(--menubar);
     backdrop-filter: blur(12px);
     z-index: 10;
 }
 
 .menubar .name {
+    font-size: 33px;
     font-weight: 600;
     color: var(--text);
     text-decoration: none;
 }
 
 .menubar .path {
+    font-size: 23px;
     font-weight: 400;
     opacity: 0.75;
 }
@@ -60,7 +63,7 @@ body {
 /* desktop */
 .desktop {
     position: absolute;
-    inset: 28px 0 0 0;
+    inset: var(--menubar-height) 0 0 0;
 }
 
 .icon {
@@ -99,7 +102,7 @@ body {
 }
 
 .icon span {
-    font-size: 13px;
+    font-size: 23px;
     line-height: 1.25;
     text-align: center;
     padding: 1px 5px;
@@ -147,7 +150,22 @@ body {
     bottom: 12px;
     width: 100%;
     text-align: center;
-    font-size: 12px;
-    opacity: 0.6;
+    font-size: 22px;
+    color: magenta;
     text-shadow: 0 1px 3px #000;
+}
+
+/* phones: keep the name and clock on one line */
+@media (max-width: 600px) {
+    .menubar .name {
+        font-size: 24px;
+    }
+
+    .menubar .path {
+        display: none;
+    }
+
+    .menubar #clock {
+        font-size: 16px;
+    }
 }

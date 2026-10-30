@@ -1,4 +1,4 @@
-// shared behavior for the desktop-style pages (index.html, astronomy.html)
+// shared behavior for the desktop-style pages (index.html, research.html)
 
 // icon drawings, added to the page so <use href="#i-..."> can find them
 document.body.insertAdjacentHTML('beforeend', `
@@ -54,7 +54,7 @@ document.body.insertAdjacentHTML('beforeend', `
 
 const desktop = document.getElementById('desktop');
 const icons = [...desktop.querySelectorAll('.icon')];
-const CELL_W = 120, CELL_H = 130, MARGIN = 24;
+const CELL_W = 160, CELL_H = 170, MARGIN = 24;
 
 // lay icons out on a grid; on narrow screens, flow them into rows instead.
 // icons with data-u / data-v are pinned to that spot on the background photo
@@ -65,7 +65,7 @@ function layout() {
     icons.forEach((icon, i) => {
         if (!narrow && icon.dataset.u) {
             icon.style.left = `calc(var(--bg-left) + ${icon.dataset.u} * var(--bg-w) - ${CELL_W / 2}px)`;
-            icon.style.top = `calc(var(--bg-top) + ${icon.dataset.v} * var(--bg-h) - 28px - 48px)`;
+            icon.style.top = `calc(var(--bg-top) + ${icon.dataset.v} * var(--bg-h) - var(--menubar-height) - 48px)`;
             return;
         }
         const x = narrow ? i % perRow : +icon.dataset.x;
