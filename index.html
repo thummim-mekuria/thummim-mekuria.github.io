@@ -7,16 +7,12 @@
     <link rel="stylesheet" href="desktop.css">
     <style>
         body {
-            /* zoom the photo and shift it so the moon (50% across, 42.5% down the photo) sits at --moon-x, --moon-y on screen */
-            --moon-x: 20vw;
-            --moon-y: 18vh;
-            --bg-w: max(160vw, 91vh);
-            --bg-h: calc(var(--bg-w) * 1.5676);  /* photo is 1804 x 2828 */
-            --bg-left: calc(var(--moon-x) - 0.5 * var(--bg-w));
-            --bg-top: calc(var(--moon-y) - 0.425 * var(--bg-h));
-            background: #1a5f8f url('background_clouds.jpg') no-repeat fixed;
-            background-size: var(--bg-w) var(--bg-h);
-            background-position: var(--bg-left) var(--bg-top);
+            /* the photo (4:3) is zoomed in so the patch of clear sky 26% of the way down it
+               sits right under the menu bar, behind the icon row */
+            --bg-w: max(150vw, calc((100vh - 60px) / 0.555));
+            background: #2a5a96 url('background_puffy_clouds.jpg') no-repeat fixed;
+            background-size: var(--bg-w) auto;
+            background-position: center calc(60px - 0.26 * 0.75 * var(--bg-w));
         }
     </style>
 </head>
@@ -27,33 +23,33 @@
         <span id="clock"></span>
     </div>
 
-    <!-- each icon: href = where it goes, svg <use> = which icon,
-         data-u / data-v = where it sits on the photo (fraction across / down), so the icons stay
-         in the blue gap below the moon at any window size -->
+    <!-- each icon: href = where it goes, svg <use> = which icon.
+         icons are laid out left to right across the top in the order they appear here -->
     <div class="desktop" id="desktop">
-        <a class="icon" href="research.html" data-u="0.500" data-v="0.416">
-            <div class="emoji">🌟</div>
-            <span>research</span>
-        </a>
-        <a class="icon" href="CV.pdf" target="_blank" data-u="0.593" data-v="0.416">
+        <!-- sticky note: drag it by the paper, click the links to open them -->
+        <div class="icon note">
+            <b>contact info</b>
+            <div class="rows">
+                <span>email:</span>    <a href="mailto:tmekuria@ucsc.edu">tmekuria@ucsc.edu</a>
+                <span>linkedin:</span> <a href="https://www.linkedin.com/in/thummim-mekuria" target="_blank">linkedin.com/in/thummim-mekuria</a>
+                <span>github:</span>   <a href="https://github.com/thummim-mekuria" target="_blank">github.com/thummim-mekuria</a>
+            </div>
+        </div>
+        <a class="icon" href="CV.pdf" target="_blank">
             <svg><use href="#i-pdf"/></svg>
             <span>curriculum_<wbr>vitae.pdf</span>
         </a>
-        <a class="icon" href="misc.html" data-u="0.500" data-v="0.506">
+        <a class="icon" href="astrophysics.html">
+            <div class="emoji">🌟</div>
+            <span>astrophysics</span>
+        </a>
+        <a class="icon" href="https://github.com/thummim-mekuria/erdos_project" target="_blank">
+            <div class="emoji">💰</div>
+            <span>quant</span>
+        </a>
+        <a class="icon" href="misc.html">
             <div class="emoji">📂</div>
             <span>misc</span>
-        </a>
-        <a class="icon" href="https://github.com/thummim-mekuria" target="_blank" data-u="0.458" data-v="0.465">
-            <svg><use href="#i-terminal"/></svg>
-            <span>github</span>
-        </a>
-        <a class="icon" href="https://github.com/thummim-mekuria/erdos_project" target="_blank" data-u="0.542" data-v="0.465">
-            <div class="emoji">💰</div>
-            <span>quant_<wbr>finance</span>
-        </a>
-        <a class="icon" href="contact_info.html" target="_blank" data-u="0.407" data-v="0.416">
-            <svg><use href="#i-txt"/></svg>
-            <span>contact_<wbr>info.txt</span>
         </a>
     </div>
 

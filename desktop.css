@@ -1,11 +1,9 @@
-/* shared look for the desktop-style pages (index.html, research.html) */
+/* shared look for the desktop-style pages (index, astrophysics, misc, philosophy) */
 :root {
     /* colors */
     --text: #fff;
     --menubar: rgba(10, 10, 20, 0.55);
     --select: rgba(120, 160, 255, 0.35);
-    --folder: #7fb3ff;
-    --folder-dark: #4f8fe8;
 
     /* sizes */
     --icon-size: 84px;
@@ -168,4 +166,95 @@ body {
     .menubar #clock {
         font-size: 16px;
     }
+}
+
+/* sticky note: <div class="icon note">, contents readable right on the desktop */
+.icon.note {
+    width: calc(3 * var(--cell-width) - 24px);
+    margin: 4px 0 0 4px;
+    padding: 16px 20px 18px;
+    align-items: flex-start;
+    gap: 4px;
+    background: #fff27a;
+    color: #2a2a2a;
+    border-radius: 2px;
+    white-space: nowrap;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+    font-size: 19px;
+    line-height: 1.35;
+    cursor: grab;
+}
+
+/* a strip of tape across the top */
+.icon.note::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 90px;
+    height: 22px;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.55);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.icon.note b {
+    font-size: 24px;
+    margin-bottom: 2px;
+}
+
+/* label column + link column, so the links all start at the same spot */
+.icon.note .rows {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    row-gap: 4px;
+}
+
+/* undo the icon-label styling for the note's labels */
+.icon.note .rows span {
+    font-size: inherit;
+    line-height: inherit;
+    text-align: left;
+    padding: 0;
+    text-shadow: none;
+}
+
+.icon.note a {
+    color: #1d4fa8;
+    cursor: pointer;
+}
+
+.icon.note.selected {
+    background: #fff27a;
+}
+
+.icon.note.dragging {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 24px 28px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes drop-note {
+    0%   { transform: translateY(-10px) scale(1.05); }
+    70%  { transform: translateY(1px); }
+    100% { transform: none; }
+}
+
+.icon.note.dropping {
+    animation: drop-note 0.3s ease-out;
+}
+
+/* phones: keep the sticky note on screen, wrapping the long links */
+@media (max-width: 600px) {
+    .icon.note {
+        width: calc(100vw - 40px);
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* "in prep" entries on a sticky note */
+.icon.note .rows .prep {
+    font-style: italic;
+    color: #6b6b6b;
 }

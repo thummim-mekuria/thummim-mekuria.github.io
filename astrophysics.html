@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>astrophysics · ቱሚም ጌታሁን መኩሪያ</title>
+    <link rel="stylesheet" href="desktop.css">
+    <style>
+        /* the background is a live star chart drawn by sky/sky.js */
+        body {
+            background: #000;
+        }
+
+        /* lime icon labels with a thin dark outline, to read over the chart's lines and stars
+           (">" so the sticky note's text keeps its own colors) */
+        .icon > span {
+            color: #7fff00;
+            text-shadow: 0 0 1px #000, 0 0 2px #000, 1px 1px 2px #000, -1px -1px 2px #000;
+        }
+
+        /* the bottom line sits on a soft dark backing so the chart doesn't run through it */
+        .hint {
+            left: 50%;
+            width: auto;
+            max-width: calc(100% - 32px);
+            transform: translateX(-50%);
+            padding: 2px 12px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            text-shadow: none;
+        }
+
+        .sky-place a {
+            color: inherit;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menubar">
+        <a class="name" href="index.html">thummim mekuria <span class="path">/ astrophysics</span></a>
+        <span id="clock"></span>
+    </div>
+
+    <!-- each icon: href = where it goes, svg <use> = which icon. class="icon back" = back button, on its own first row; the rest go left to right on the rows below -->
+    <div class="desktop" id="desktop">
+        <a class="icon back" href="index.html">
+            <div class="emoji">⬅️</div>
+            <span>home</span>
+        </a>
+        <!-- sticky note: drag it by the paper, click the links to open them -->
+        <div class="icon note">
+            <b>publications</b>
+            <div class="rows">
+                <span>HI Kinematics:</span>     <a href="https://doi.org/10.3847/1538-3881/ae3f30" target="_blank">AJ 171, 200 (2026)</a>
+                <span>Outflows at z = 10:</span>       <span class="prep">in prep</span>
+                <span>Cylindrical cloud models:</span>     <span class="prep">in prep</span>
+            </div>
+        </div>
+        <!-- one icon per project, each opening its GitHub repo -->
+        <a class="icon" href="https://github.com/thummim-mekuria/hi_kinematics" target="_blank">
+            <div class="emoji">🌌</div>
+            <span>HI Kinematics</span>
+        </a>
+        <a class="icon" href="https://github.com/thummim-mekuria/outflows_driven_by_supernovae" target="_blank">
+            <div class="emoji">🎆</div>
+            <span>Outflows at z&nbsp;=&nbsp;10</span>
+        </a>
+        <a class="icon" href="https://github.com/thummim-mekuria/dust_3d_clouds" target="_blank">
+            <div class="emoji">🪵</div>
+            <span>Cylindrical cloud models</span>
+        </a>
+    </div>
+
+    <div class="hint sky-place"><span id="sky-where">the sky over Santa Cruz</span> · <a href="#" id="sky-toggle">show the sky over me</a></div>
+
+    <script src="desktop.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
+    <script src="sky/sky-data.js"></script>
+    <script src="sky/sky.js"></script>
+</body>
+</html>
