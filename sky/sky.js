@@ -208,8 +208,7 @@
     const toggle = document.getElementById('sky-toggle');
 
     function caption() {
-        const t = new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
-        where.textContent = `the sky over ${place.label} at ${t}`;
+        where.textContent = `the sky over ${place.label} right now`;
         toggle.textContent = place === SANTA_CRUZ ? 'show the sky over me' : 'back to Santa Cruz';
     }
 
