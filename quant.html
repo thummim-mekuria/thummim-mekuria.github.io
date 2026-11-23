@@ -6,12 +6,8 @@
     <title>quant · ቱሚም ጌታሁን መኩሪያ</title>
     <link rel="stylesheet" href="desktop.css">
     <style>
-        /* same sky photo + framing as the home desktop */
         body {
-            --bg-w: max(150vw, calc((100vh - 60px) / 0.555));
-            background: #2a5a96 url('background_puffy_clouds.jpg') no-repeat fixed;
-            background-size: var(--bg-w) auto;
-            background-position: center calc(60px - 0.26 * 0.75 * var(--bg-w));
+            background: #1a1a1a url('background_parking_lot.jpg') center / cover no-repeat fixed;
         }
     </style>
 </head>
@@ -28,6 +24,13 @@
             <div class="emoji">⬅️</div>
             <span>home</span>
         </a>
+        <!-- sticky note: drag it by the paper, click the links to open them -->
+        <div class="icon note">
+            <b>about these projects</b>
+            <div class="rows">
+                <span>inspired by:</span> <a href="https://zindi.africa" target="_blank">challenges on Zindi</a>
+            </div>
+        </div>
         <a class="icon" href="https://github.com/thummim-mekuria/erdos_project" target="_blank">
             <div class="emoji">🌽</div>
             <span>options pricing</span>
