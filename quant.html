@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quant · ቱሚም ጌታሁን መኩሪያ</title>
+    <link rel="stylesheet" href="desktop.css">
+    <style>
+        /* same sky photo + framing as the home desktop */
+        body {
+            --bg-w: max(150vw, calc((100vh - 60px) / 0.555));
+            background: #2a5a96 url('background_puffy_clouds.jpg') no-repeat fixed;
+            background-size: var(--bg-w) auto;
+            background-position: center calc(60px - 0.26 * 0.75 * var(--bg-w));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menubar">
+        <a class="name" href="index.html">thummim mekuria <span class="path">/ quant</span></a>
+        <span id="clock"></span>
+    </div>
+
+    <!-- each icon: href = where it goes, svg <use> = which icon. class="icon back" = back button, on its own first row; the rest go left to right on the rows below -->
+    <div class="desktop" id="desktop">
+        <a class="icon back" href="index.html">
+            <div class="emoji">⬅️</div>
+            <span>home</span>
+        </a>
+        <a class="icon" href="https://github.com/thummim-mekuria/erdos_project" target="_blank">
+            <div class="emoji">🌽</div>
+            <span>options pricing</span>
+        </a>
+    </div>
+
+    <div class="hint">click an icon to open it · drag to rearrange</div>
+
+    <script src="desktop.js"></script>
+</body>
+</html>
