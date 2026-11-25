@@ -9,20 +9,41 @@
         body {
             background: #05050a url('background_orion.jpg') center / cover no-repeat fixed;
         }
+
+        /* this note's row is a description, not a short link, so let it wrap */
+        .icon.note {
+            width: calc(4 * var(--cell-width) - 24px);
+            white-space: normal;
+        }
+
+        .icon.note .rows span:nth-child(odd) {
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
 
     <div class="menubar">
-        <a class="name" href="index.html">thummim mekuria <span class="path">/ misc / philosophy</span></a>
+        <a class="name" href="index.html">thummim mekuria <span class="path">/ philosophy</span></a>
         <span id="clock"></span>
     </div>
 
     <!-- each icon: href = where it goes, svg <use> = which icon. class="icon back" = back button, on its own first row; the rest go left to right on the rows below -->
     <div class="desktop" id="desktop">
-        <a class="icon back" href="misc.html">
+        <a class="icon back" href="index.html">
             <div class="emoji">⬅️</div>
-            <span>misc</span>
+            <span>home</span>
+        </a>
+        <!-- sticky note: drag it by the paper, click the links to open them -->
+        <div class="icon note">
+            <b>decolonizing physics &amp; astro.pdf</b>
+            <div class="rows">
+                <span>what:</span> <span>symposium poster reimagining constellation myths beyond the Greek canon</span>
+            </div>
+        </div>
+        <a class="icon" href="DecolonizingPhysAstroSymposium.pdf" target="_blank">
+            <svg><use href="#i-pdf"/></svg>
+            <span>decolonizing physics &amp; astro.pdf</span>
         </a>
     </div>
 
